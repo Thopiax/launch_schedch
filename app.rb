@@ -15,9 +15,10 @@ get '/' do
 
   {
     uid: "urn:uuid:#{SecureRandom.uuid}",
-    updateDate: "#{Time.now.strftime('%FT%T')}.0Z",
-    titleText: 'Amazon Developer Blog, week in review May 23rd',
-    mainText: "The next launch will be by #{next_launch[:rocket]} in #{next_launch[:location]} at #{better_date}"
+    updateDate: "#{Time.now.utc.strftime('%FT%T')}.0Z",
+    titleText: "The next launch will be by #{next_launch[:rocket]} in #{next_launch[:location]} at #{better_date}",
+    mainText: "The next launch will be by #{next_launch[:rocket]} in #{next_launch[:location]} at #{better_date}",
+    redicrectionURL: 'https://launchlibrary.net'
   }.to_json
 end
 

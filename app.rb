@@ -7,6 +7,8 @@ require 'net/http'
 require 'active_support/inflector'
 
 get '/' do
+  content_type :json
+
   next_launch = fetch_next_launch
 
   better_date = next_launch[:date].strftime("%l:%M%p on %A, #{ActiveSupport::Inflector.ordinalize(next_launch[:date].day)} of %B")
